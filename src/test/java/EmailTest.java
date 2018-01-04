@@ -11,22 +11,22 @@ import static Common.Constants.MAILINATOR_URL;
 public class EmailTest {
 
     @AfterClass
-    public static void tearDownClass(){
+    public static void tearDownClass() {
         DriverFactory.driver.quit();
     }
 
-@Before
-public void SetUp(){
-    LoginPage login = new LoginPage();
-    login.loginValidUser();
-}
+    @Before
+    public void SetUp() {
+        LoginPage login = new LoginPage();
+        login.loginValidUser();
+    }
 
-@After
-public void tearDown(){
-    DriverFactory.driver.navigate().to(BASE_URL);
-    MainPage main = new MainPage();
-    main.logOut();
-}
+    @After
+    public void tearDown() {
+        DriverFactory.driver.navigate().to(BASE_URL);
+        MainPage main = new MainPage();
+        main.logOut();
+    }
 
     @Test
     public void test1EmailCheck() throws Exception {
@@ -46,7 +46,7 @@ public void tearDown(){
         MailinatorMailPage mailMail = new MailinatorMailPage();
         String expectedText = "moments ago";
         String actualText = mailMail.getTextTime();
-        Assert.assertEquals("Mail is absent", expectedText,actualText );
+        Assert.assertEquals("Mail is absent", expectedText, actualText);
 
     }
 
@@ -70,8 +70,8 @@ public void tearDown(){
         String actualSender = mailMail.getTextSender();
         String expectedSubject = subj;
         String actualSubject = mailMail.getTextSubject();
-        Assert.assertEquals("Incorrect sender", expectedSender,actualSender );
-        Assert.assertEquals("Incorrect subject", expectedSubject,actualSubject );
+        Assert.assertEquals("Incorrect sender", expectedSender, actualSender);
+        Assert.assertEquals("Incorrect subject", expectedSubject, actualSubject);
 
     }
 

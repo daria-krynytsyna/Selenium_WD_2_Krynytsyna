@@ -7,7 +7,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//*[@title ='выйти']")
     private WebElement btnLogOut;
 
-    public void logOut(){
+    public void logOut() {
         btnLogOut.click();
     }
 

@@ -21,27 +21,27 @@ public class MailinatorMailPage extends BasePage {
     @FindBy(xpath = "//*[@class='all_message-min_text all_message-min_text-3']")
     private WebElement subject;
 
-    @FindBy(xpath ="//*[@id='msg_body']")
+    @FindBy(xpath = "//*[@id='msg_body']")
     private WebElement frame;
 
 
-    public String getTextSubject (){
+    public String getTextSubject() {
         return subject.getText();
     }
 
-    public String getTextSender (){
+    public String getTextSender() {
         return sender.getText();
     }
 
-    public String getTextTime (){
-    return timeSubject.getText();
+    public String getTextTime() {
+        return timeSubject.getText();
     }
 
-    public void clickMail(){
+    public void clickMail() {
         subject.click();
     }
 
-///  Does not work
+    ///  Does not work
     public boolean findBody(String expectedSubj) throws ScriptException {
 
         /*driver.switchTo().frame(1).findElement(By.cssSelector("body")).getText();
@@ -67,10 +67,10 @@ WebElement frame = (WebElement)((JavascriptExecutor) driver)
         driver.switchTo().defaultContent();
         String actualBody = driver.switchTo().frame(1).findElement(By.cssSelector("body")).getAttribute("outerHtml");
 
-            System.out.println(actualBody);
-            if (actualBody.contains(expectedSubj)) {
-                return true;
-            }
+        System.out.println(actualBody);
+        if (actualBody.contains(expectedSubj)) {
+            return true;
+        }
 
         return false;
     }

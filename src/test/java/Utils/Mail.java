@@ -8,7 +8,7 @@ public class Mail {
     private String body;
     private Date date;
 
-    public Mail(String sender, String subject, String body,Date date) {
+    public Mail(String sender, String subject, String body, Date date) {
         this.sender = sender;
         this.subject = subject;
         this.body = body;

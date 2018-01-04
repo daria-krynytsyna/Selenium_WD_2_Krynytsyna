@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
     private WebElement btnLogin;
 
 
-    public void login (String name, String password){
+    public void login(String name, String password) {
 
         inputLogin.sendKeys(name);
         inputPassword.sendKeys(password);
@@ -24,14 +24,14 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void loginValidUser (){
+    public void loginValidUser() {
         User user = UserFactory.getValidUser();
-        login (user.getName(),user.getPassword());
+        login(user.getName(), user.getPassword());
     }
 
-    public void loginInvalidUser (){
+    public void loginInvalidUser() {
         User user = UserFactory.getInvalidUser();
-        login (user.getName(),user.getPassword());
+        login(user.getName(), user.getPassword());
     }
 }
 
