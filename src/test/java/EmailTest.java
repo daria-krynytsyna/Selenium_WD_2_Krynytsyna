@@ -94,8 +94,7 @@ public class EmailTest {
         mailMail.clickMail();
         String expectedBody = body;
 
-        // Does not work
-        //Assert.assertTrue("Incorrect body", mailMail.findBody(expectedBody) );
+        Assert.assertTrue("Incorrect body", mailMail.findBody(expectedBody) );
 
 
     }

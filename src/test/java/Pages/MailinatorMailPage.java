@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.util.concurrent.TimeUnit;
 
 public class MailinatorMailPage extends BasePage {
 
@@ -42,10 +43,10 @@ public class MailinatorMailPage extends BasePage {
     }
 
     ///  Does not work
-    public boolean findBody(String expectedSubj) throws ScriptException {
+    public boolean findBody(String expectedSubj) throws ScriptException, InterruptedException {
 
-        /*driver.switchTo().frame(1).findElement(By.cssSelector("body")).getText();
-WebElement frame = (WebElement)((JavascriptExecutor) driver)
+        //driver.switchTo().frame(1).findElement(By.cssSelector("body")).getAttribute("body");
+/*WebElement frame = (WebElement)((JavascriptExecutor) driver)
         .executeScript("var frameObj = document.evaluate('/html/body', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.outerHTML;\n" +
         //" var frameContent = frameObj.contentWindow.document.body.outerHTML;\n" +
         " alert(\"frame content : \"+frameObj);" );
@@ -65,8 +66,9 @@ WebElement frame = (WebElement)((JavascriptExecutor) driver)
         System.out.println(eval);*/
 
         driver.switchTo().defaultContent();
-        String actualBody = driver.switchTo().frame(1).findElement(By.cssSelector("body")).getAttribute("outerHtml");
-
+        driver.switchTo().frame(1);
+        Thread.sleep(400);
+        String actualBody = driver.findElement(By.cssSelector("body")).getText();
         System.out.println(actualBody);
         if (actualBody.contains(expectedSubj)) {
             return true;
